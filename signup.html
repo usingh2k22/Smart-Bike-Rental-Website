@@ -1,0 +1,126 @@
+<!-- <?php
+if (isset($_POST['index'])) {
+    $query = "SELECT * FROM signupdata WHERE Email='{$_POST['email']}'";
+    $run=mysqli_query($db,$query);
+    $data=mysqli_fetch_array($run);
+    if(count($data)>0) {
+        echo "<script>window.location.href='register.php?user_already_registered';</script>";
+
+}
+
+}
+
+
+?> -->
+
+
+<html>
+
+<head>
+    <title>Sign In and Sign up Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1 id="title">Sign Up</h1>
+            <form action="connectsignup.php" name="signup" onsubmit="return validateform()" method="post">
+                <div class="input-group">
+                    <div class="input-field" id="nameField">
+                        <i class="fa-solid fa-user" class=" icon"></i>
+                        <input class="form-text" type=" text" placeholder="Name" name="Name" required><span
+                            class="formerror"><span class="text-danger"></span></span>
+                    </div>
+
+
+                    <div class="input-field" id="emailField">
+                        <i class="fa-solid fa-envelope" class=" icon"></i>
+                        <input class="form-text" type="email" placeholder="Email" name="Email" id="email" required><span
+                            class="formerror"></span>
+                    </div>
+
+
+                    <div class="input-field" id="passwordField">
+                        <i class="fa-solid fa-lock" class=" icon"></i>
+                        <input class="form-text" type="password" placeholder="password" name="Password" required><span
+                            class="formerror"></span>
+                    </div>
+                    <p>Forgot password <a href="#">Click Here</a></p>
+                </div>
+                <div class="btn-field">
+                    <button type="submit" id="signupBtn">Sign up</button>
+                    <button type="button" id="signinBtn" class="disable"><a href="login.html" id="signin">Sign
+                            in</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    // function clearErrors(){
+    //   errors=document.getElementsByClassName('formerror');
+    //   for(Let item of errors){
+    //     item.innerHTML="";
+    //   }
+    // }
+    function seterror(id, error) {
+        element = document.getElementById(id);
+        element.getElementsByClassName('formerror')[0].innerHTML = error;
+    }
+
+
+    function validateform() {
+        var returnval = true;
+        // clearErrors();
+
+        var name = document.forms['signup']["Name"].value;
+        console.log(name);
+        if (name.length < 5) {
+            seterror("nameField", "*Length is too short");
+            returnval = false;
+        }
+
+        if (name.length == 0) {
+            seterror("nameField", "*Name cannot be blank");
+            returnval = false;
+        }
+
+        var email = document.forms['signup']["Email"].value;
+
+        if (email.length == 0) {
+            seterror("emailField", "*Email cannot be blank");
+            returnval = false;
+        }
+
+        if (!email.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+            seterror("emailField", "Please Enter Valid Email");
+            returnval = false;
+        }
+
+
+        var pass = document.forms['signup']["Password"].value;
+        if (pass.length == 0) {
+            seterror("passwordField", "*Password cannot be blank");
+            returnval = false;
+        }
+        if (pass.length < 6) {
+            seterror("passwordField", "*Password should be atleast 6 char long");
+            returnval = false;
+        }
+
+
+        $result = "SELECT * FROM signupdata WHERE Email='{$_POST['email']}'";
+
+
+        return returnval;
+    }
+
+</script>
+
+</html>

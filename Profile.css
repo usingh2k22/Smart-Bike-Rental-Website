@@ -1,0 +1,85 @@
+* {
+    margin: 0px;
+    padding: 0px; 
+}
+body{
+    background-color: black;
+    color: white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+navbar {
+    display: flex;
+    justify-content: space-between;
+    border-bottom:2px solid #95C113;
+    align-items: center;
+    height:20vh;
+}
+#brand-green{
+    color:#95C113;
+   
+}
+/* #brand-white{
+    margin-left: 200px;
+} */
+#nav-right{
+    display:flex;
+    list-style: none;
+    margin-right: 200px;
+    align-items: center;
+   
+}
+#nav-left {
+    font-size:1.5rem;
+    margin-left: 200px;
+
+}
+
+.nav-right-item{
+    font-size:1.5rem;
+    margin:1.3rem;
+}
+.heading{
+    margin-top: 30px;
+    margin-left: 25px;
+    margin-bottom: 60px;
+    font-size: 45px;
+}
+
+#personal-info{
+    font-size:25px;
+      display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+    line-height: 50px;
+}
+#editInfo{
+    color:black;
+    font-weight: bolder;
+    padding:2px 15px;
+    color:white;
+    background-color: #53b853;
+    margin-right: 150px;
+    font-size: 15px;
+}
+
+#personal-head{
+   
+    display:flex;
+    justify-content: space-between;
+
+}
+#db-data{
+   
+    border-bottom: 2px dotted white;
+}
+
+#history{
+    height:50vh;
+}
+#logout{
+    text-decoration: none;
+    color:white;
+}
